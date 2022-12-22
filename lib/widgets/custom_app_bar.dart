@@ -11,8 +11,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
-        color: Colors.black
-            .withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
+        color: Colors.black,
         child: Responsive(
           mobile: _CustomAppBarMobile(),
           desktop: _CustomAppBarDesktop(),
@@ -26,20 +25,13 @@ class _CustomAppBarMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Row(children: [
-      Image.asset(Assets.netflixLogo0),
-      const SizedBox(width: 12.0),
-      Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _AppBarButton(title: 'TV Shows', onTap: () => print('TV Shows')),
-            _AppBarButton(title: 'Movies', onTap: () => print('Movies')),
-            _AppBarButton(title: 'My List', onTap: () => print('My List'))
-          ],
-        ),
-      )
-    ]));
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(Assets.netflixLogo1),
+        ],
+      ),
+    );
   }
 }
 

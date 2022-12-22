@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Color.fromRGBO(15, 17, 28, 100),
       ),
       home: NavScreen(),
     );
