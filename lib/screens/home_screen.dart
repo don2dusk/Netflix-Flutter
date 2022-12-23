@@ -37,11 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => print("Cast"),
-        backgroundColor: Colors.grey[850],
-        child: const Icon(Icons.cast),
-      ),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [
@@ -88,23 +83,37 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(left: 40, right: 40),
             sliver: SliverToBoxAdapter(
               child: SizedBox(
-                  height: 60,
-                  child: CupertinoTextField(
-                    padding: EdgeInsets.only(left: 20, right: 20),
-                    prefix: Icon(
-                      Iconsax.search_normal,
-                      size: 30,
+                height: 60,
+                child: TextField(
+                  style: TextStyle(
+                      color: Colors.grey[300], fontWeight: FontWeight.w600),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Iconsax.search_normal_1,
                       color: Colors.grey[300],
                     ),
-                    placeholder: 'Search here...',
-                    placeholderStyle: TextStyle(
+                    suffixIcon:
+                        Icon(Iconsax.microphone_2, color: Colors.grey[300]),
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromRGBO(38, 38, 49, 100),
+                        width: 0,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    fillColor: Color.fromRGBO(38, 38, 49, 100),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    hintText: 'Search here...',
+                    hintStyle: TextStyle(
                       color: Colors.grey[600],
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Color.fromRGBO(38, 38, 49, 100),
-                    ),
-                  )),
+                  ),
+                ),
+              ),
             ),
           ),
           SliverPadding(

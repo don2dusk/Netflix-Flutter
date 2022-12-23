@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
 import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../widgets/responsive.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key? key}) : super(key: key);
-
   @override
   State<NavScreen> createState() => _NavScreenState();
 }
 
 class _NavScreenState extends State<NavScreen> {
+  int _currentIndex = 0;
   final List<Widget> _screens = [
     HomeScreen(key: PageStorageKey('homeScreen')),
     Scaffold(),
@@ -21,15 +22,15 @@ class _NavScreenState extends State<NavScreen> {
     Scaffold(),
   ];
 
-  final Map<String, IconData> _icons = {
-    'Home': Icons.home,
-    'Search': Icons.search,
-    'Coming Soon': Icons.queue_play_next,
-    'Downloads': Icons.file_download,
-    'More': Icons.menu
-  };
-
-  int _currentIndex = 0;
+  final List<IconData> _icon = [
+    Iconsax.home4,
+    Iconsax.home5,
+    Iconsax.play_circle4,
+    Iconsax.play_circle5,
+    Iconsax.heart4,
+    Iconsax.heart5,
+    Iconsax.user4,
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,29 +39,55 @@ class _NavScreenState extends State<NavScreen> {
         child: _screens[_currentIndex],
       ),
       bottomNavigationBar: !Responsive.isDesktop(context)
-          ? BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.black,
-              items: _icons
-                  .map(
-                    (title, icon) => MapEntry(
-                      title,
-                      BottomNavigationBarItem(
-                        icon: Icon(icon, size: 30.0),
-                        label: title,
-                      ),
-                    ),
-                  )
-                  .values
-                  .toList(),
-              currentIndex: _currentIndex,
-              selectedItemColor: Colors.white,
-              selectedFontSize: 11,
-              unselectedItemColor: Colors.grey,
-              unselectedFontSize: 11,
-              onTap: (index) => setState(() => _currentIndex = index),
+          ? Row(
+              children: [
+                customNavBar(
+                  0,
+                  _icon[0],
+                  _icon[1],
+                ),
+                customNavBar(
+                  1,
+                  _icon[2],
+                  _icon[3],
+                ),
+                customNavBar(
+                  2,
+                  _icon[4],
+                  _icon[5],
+                ),
+                customNavBar(
+                  3,
+                  _icon[6],
+                  _icon[6],
+                )
+              ],
             )
           : null,
+    );
+  }
+
+  Widget customNavBar(int index, IconData icon, IconData selIcon) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+      child: Container(
+        height: 80,
+        width: MediaQuery.of(context).size.width / 4,
+        decoration: BoxDecoration(
+          color: Colors.black,
+        ),
+        child: Icon(
+          _currentIndex == index ? selIcon : icon,
+          color: _currentIndex == index
+              ? Color.fromARGB(236, 226, 21, 24)
+              : Colors.grey[300],
+          size: 30,
+        ),
+      ),
     );
   }
 }
