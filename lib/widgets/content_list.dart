@@ -45,12 +45,8 @@ class ContentList extends StatelessWidget {
                   return GestureDetector(
                     onTap: () => print(title),
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                      ),
-                      height: isOriginals ? 400 : 200,
-                      width: isOriginals ? 200 : 130,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                           image: AssetImage(
                             content.imageUrl,
@@ -58,6 +54,11 @@ class ContentList extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      height: isOriginals ? 400 : 200,
+                      width: isOriginals ? 200 : 130,
                     ),
                   );
                 }),
