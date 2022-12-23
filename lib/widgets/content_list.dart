@@ -36,7 +36,7 @@ class ContentList extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Container(
-            height: isOriginals ? 500 : 220,
+            height: isOriginals ? 350 : 220,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: contentList.length,
@@ -57,7 +57,7 @@ class ContentList extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                         horizontal: 8,
                       ),
-                      height: isOriginals ? 400 : 200,
+                      height: isOriginals ? 350 : 200,
                       width: isOriginals ? 200 : 130,
                     ),
                   );

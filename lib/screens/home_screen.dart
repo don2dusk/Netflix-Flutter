@@ -129,33 +129,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: Scaffold(
-                body: TabBarView(key: PageStorageKey('Tab Bar'), children: [
+                body: TabBarView(key: PageStorageKey('Tab Ba'), children: [
                   CustomScrollView(
                     key: PageStorageKey('Scroll View'),
                     slivers: [
                       SliverPadding(
                         padding: const EdgeInsets.only(top: 20),
                         sliver: SliverToBoxAdapter(
-                          child: Previews(
-                            key: PageStorageKey('Previews'),
-                            title: 'Previews',
-                            contentList: previews,
+                          child: Featured(
+                            contentList: originals,
                           ),
                         ),
                       ),
                       SliverToBoxAdapter(
                         child: ContentList(
                           key: PageStorageKey('My List'),
-                          title: 'My List',
-                          contentList: myList,
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: ContentList(
-                          key: PageStorageKey('Originals'),
-                          title: 'Netflix Originals',
-                          contentList: originals,
-                          isOriginals: true,
+                          title: 'New Releases',
+                          contentList: trending,
                         ),
                       ),
                       SliverPadding(
@@ -167,13 +157,44 @@ class _HomeScreenState extends State<HomeScreen> {
                             key: PageStorageKey('Trending'),
                             title: 'Trending',
                             contentList: trending,
+                            isOriginals: true,
                           ),
                         ),
                       )
                     ],
                   ),
-                  Scaffold(
-                    key: PageStorageKey('Movies'),
+                  CustomScrollView(
+                    key: PageStorageKey('Scroll Vie'),
+                    slivers: [
+                      SliverPadding(
+                        padding: const EdgeInsets.only(top: 20),
+                        sliver: SliverToBoxAdapter(
+                          child: Featured(
+                            contentList: previews,
+                          ),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: ContentList(
+                          key: PageStorageKey('My Lis'),
+                          title: 'New Releases',
+                          contentList: myList,
+                        ),
+                      ),
+                      SliverPadding(
+                        padding: EdgeInsets.only(
+                          bottom: 20,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: ContentList(
+                            key: PageStorageKey('Trendin'),
+                            title: 'Trending',
+                            contentList: trending,
+                            isOriginals: true,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ]),
               ),
