@@ -1,7 +1,7 @@
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/assets.dart';
-import 'package:flutter_netflix_responsive_ui/data/data.dart';
+import 'package:netflix_flutter/assets.dart';
+import 'package:netflix_flutter/data/data.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -137,9 +137,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(top: 20),
                         sliver: SliverToBoxAdapter(
                           child: Featured(
-                            contentList: originals,
+                            contentList: previews,
                           ),
                         ),
+                      ),
+                      SliverPadding(
+                        padding: EdgeInsets.only(bottom: 20),
                       ),
                       SliverToBoxAdapter(
                         child: ContentList(
@@ -147,6 +150,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: 'New Releases',
                           contentList: trending,
                         ),
+                      ),
+                      SliverPadding(
+                        padding: EdgeInsets.only(bottom: 10),
                       ),
                       SliverPadding(
                         padding: EdgeInsets.only(
@@ -170,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(top: 20),
                         sliver: SliverToBoxAdapter(
                           child: Featured(
-                            contentList: previews,
+                            contentList: movies,
                           ),
                         ),
                       ),

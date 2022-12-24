@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
-import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:netflix_flutter/cubits/cubits.dart';
+import 'package:netflix_flutter/screens/screens.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../widgets/responsive.dart';

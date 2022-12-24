@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/models/models.dart';
+import 'package:netflix_flutter/models/models.dart';
 
 import '../assets.dart';
 

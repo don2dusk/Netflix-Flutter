@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_netflix_responsive_ui/models/models.dart';
+import 'package:netflix_flutter/models/models.dart';
 
 class ContentList extends StatelessWidget {
   final String title;
@@ -24,7 +23,7 @@ class ContentList extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
+              horizontal: 20,
             ),
             child: Text(
               title,

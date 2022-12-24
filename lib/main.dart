@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:netflix_flutter/screens/screens.dart';
 
 void main() {
   runApp(MyApp());
