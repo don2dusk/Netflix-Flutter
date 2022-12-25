@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_flutter/models/models.dart';
+import 'package:netflix_flutter/widgets/widgets.dart';
 
 class ContentList extends StatelessWidget {
   final String title;
   final List<Content> contentList;
   final bool isOriginals;
+  final bool isMovie;
   const ContentList({
     Key? key,
     required this.title,
     required this.contentList,
+    required this.isMovie,
     this.isOriginals = false,
   }) : super(key: key);
 
@@ -42,7 +45,11 @@ class ContentList extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final Content content = contentList[index];
                   return GestureDetector(
-                    onTap: () => print(title),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Preview(content: content, isMovie: isMovie))),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),

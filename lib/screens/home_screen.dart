@@ -22,190 +22,202 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 2,
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: NavDrawer(),
+        drawer: Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: NavDrawer(),
+        ),
         extendBodyBehindAppBar: true,
-        body: Column(
-          children: [
-            SafeArea(
-              child: SizedBox(
-                height: 50,
-                width: screenSize.width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    GestureDetector(
-                      child: Icon(
-                        Iconsax.menu_1,
-                        color: Colors.grey[300],
-                        size: 40,
-                      ),
-                      onTap: () => _scaffoldKey.currentState!.openDrawer(),
-                    ),
-                    Image.asset(
-                      Assets.netflixLogo1,
-                      scale: 7.5,
-                    ),
-                    GestureDetector(
-                      onTap: () => print('Notification'),
-                      child: Container(
-                        height: 50,
-                        width: 50,
+        body: Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Column(
+            children: [
+              SafeArea(
+                child: SizedBox(
+                  height: 50,
+                  width: screenSize.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
                         child: Icon(
-                          Iconsax.notification4,
-                          color: Colors.white70,
+                          Iconsax.menu_1,
+                          color: Colors.grey[300],
+                          size: 40,
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Color.fromRGBO(38, 38, 49, 100)),
+                        onTap: () => _scaffoldKey.currentState!.openDrawer(),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Padding(padding: EdgeInsets.all(25)),
-            Padding(
-              padding: EdgeInsets.only(left: 40, right: 40),
-              child: SizedBox(
-                height: 60,
-                child: TextField(
-                  style: TextStyle(
-                      color: Colors.grey[300], fontWeight: FontWeight.w600),
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Iconsax.search_normal_1,
-                      color: Colors.grey[300],
-                    ),
-                    suffixIcon:
-                        Icon(Iconsax.microphone_2, color: Colors.grey[300]),
-                    filled: true,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromRGBO(38, 38, 49, 100),
-                        width: 0,
+                      Image.asset(
+                        Assets.netflixLogo1,
+                        scale: 7.5,
                       ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    fillColor: Color.fromRGBO(38, 38, 49, 100),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: 'Search here...',
-                    hintStyle: TextStyle(
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(padding: EdgeInsets.all(20)),
-            TabBar(
-                key: PageStorageKey('Tab Bar'),
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicatorPadding: EdgeInsets.fromLTRB(30, -15, 30, -15),
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Color.fromARGB(236, 226, 18, 42),
-                ),
-                tabs: [
-                  Text(
-                    'TV Shows',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    'Movies',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ]),
-            SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: Scaffold(
-                body: TabBarView(key: PageStorageKey('Tab Ba'), children: [
-                  CustomScrollView(
-                    key: PageStorageKey('Scroll View'),
-                    slivers: [
-                      SliverPadding(
-                        padding: const EdgeInsets.only(top: 20),
-                        sliver: SliverToBoxAdapter(
-                          child: Featured(
-                            contentList: previews,
+                      GestureDetector(
+                        onTap: () => print('Notification'),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          child: Icon(
+                            Iconsax.notification4,
+                            color: Colors.white70,
                           ),
-                        ),
-                      ),
-                      SliverPadding(
-                        padding: EdgeInsets.only(bottom: 20),
-                      ),
-                      SliverToBoxAdapter(
-                        child: ContentList(
-                          key: PageStorageKey('My List'),
-                          title: 'New Releases',
-                          contentList: trending,
-                        ),
-                      ),
-                      SliverPadding(
-                        padding: EdgeInsets.only(bottom: 10),
-                      ),
-                      SliverPadding(
-                        padding: EdgeInsets.only(
-                          bottom: 20,
-                        ),
-                        sliver: SliverToBoxAdapter(
-                          child: ContentList(
-                            key: PageStorageKey('Trending'),
-                            title: 'Trending',
-                            contentList: trending,
-                            isOriginals: true,
-                          ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Color.fromRGBO(38, 38, 49, 100)),
                         ),
                       )
                     ],
                   ),
-                  CustomScrollView(
-                    key: PageStorageKey('Scroll Vie'),
-                    slivers: [
-                      SliverPadding(
-                        padding: const EdgeInsets.only(top: 20),
-                        sliver: SliverToBoxAdapter(
-                          child: Featured(
-                            contentList: movies,
-                          ),
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: ContentList(
-                          key: PageStorageKey('My Lis'),
-                          title: 'New Releases',
-                          contentList: myList,
-                        ),
-                      ),
-                      SliverPadding(
-                        padding: EdgeInsets.only(
-                          bottom: 20,
-                        ),
-                        sliver: SliverToBoxAdapter(
-                          child: ContentList(
-                            key: PageStorageKey('Trendin'),
-                            title: 'Trending',
-                            contentList: trending,
-                            isOriginals: true,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ]),
+                ),
               ),
-            ),
-          ],
+              Padding(padding: EdgeInsets.all(25)),
+              Padding(
+                padding: EdgeInsets.only(left: 40, right: 40),
+                child: SizedBox(
+                  height: 60,
+                  child: TextField(
+                    style: TextStyle(
+                        color: Colors.grey[300], fontWeight: FontWeight.w600),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Iconsax.search_normal_1,
+                        color: Colors.grey[300],
+                      ),
+                      suffixIcon:
+                          Icon(Iconsax.microphone_2, color: Colors.grey[300]),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(38, 38, 49, 100),
+                          width: 0,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      fillColor: Color.fromRGBO(38, 38, 49, 100),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      hintText: 'Search here...',
+                      hintStyle: TextStyle(
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(20)),
+              TabBar(
+                  key: PageStorageKey('Tab Bar'),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorPadding: EdgeInsets.fromLTRB(30, -15, 30, -15),
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Color.fromARGB(236, 226, 18, 42),
+                  ),
+                  tabs: [
+                    Text(
+                      'TV Shows',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      'Movies',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ]),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: Scaffold(
+                  body: TabBarView(key: PageStorageKey('Tab Ba'), children: [
+                    CustomScrollView(
+                      key: PageStorageKey('Scroll View'),
+                      slivers: [
+                        SliverPadding(
+                          padding: const EdgeInsets.only(top: 20),
+                          sliver: SliverToBoxAdapter(
+                            child: Featured(
+                              contentList: previews,
+                              isMovie: false,
+                            ),
+                          ),
+                        ),
+                        SliverPadding(
+                          padding: EdgeInsets.only(bottom: 20),
+                        ),
+                        SliverToBoxAdapter(
+                          child: ContentList(
+                            key: PageStorageKey('My List'),
+                            title: 'New Releases',
+                            contentList: trending,
+                            isMovie: false,
+                          ),
+                        ),
+                        SliverPadding(
+                          padding: EdgeInsets.only(bottom: 10),
+                        ),
+                        SliverPadding(
+                          padding: EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          sliver: SliverToBoxAdapter(
+                            child: ContentList(
+                              key: PageStorageKey('Trending'),
+                              title: 'Trending',
+                              contentList: trending,
+                              isOriginals: true,
+                              isMovie: false,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    CustomScrollView(
+                      key: PageStorageKey('Scroll Vie'),
+                      slivers: [
+                        SliverPadding(
+                          padding: const EdgeInsets.only(top: 20),
+                          sliver: SliverToBoxAdapter(
+                            child: Featured(
+                              contentList: movies,
+                              isMovie: true,
+                            ),
+                          ),
+                        ),
+                        SliverToBoxAdapter(
+                          child: ContentList(
+                            key: PageStorageKey('My Lis'),
+                            title: 'New Releases',
+                            contentList: myList,
+                            isMovie: true,
+                          ),
+                        ),
+                        SliverPadding(
+                          padding: EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          sliver: SliverToBoxAdapter(
+                            child: ContentList(
+                              key: PageStorageKey('Trendin'),
+                              title: 'Trending',
+                              contentList: previews,
+                              isOriginals: true,
+                              isMovie: true,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ]),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
