@@ -23,3 +23,12 @@ A minimal and elegant UI Redesign for the Netflix Mobile App. Made with ❤️ a
 <img src = "https://github.com/don2dusk/Netflix-Flutter/blob/updated_mobile/assets/ss/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-02%20at%2018.58.20.png" width = "40%" height = "40%">
 <img src = "https://github.com/don2dusk/Netflix-Flutter/blob/updated_mobile/assets/ss/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-02%20at%2018.49.55.png" width = "40%" height = "40%">
 </p>
+
+## A Couple of Thoughts on the Design
+I decided to make the interface more minimalist and elegant by incoroporating more modern elements like the navigation drawer to reduce the number of items on the app bar and bottom navigation bar (see old design).
+
+## Some Additional Flutter Dependencies Used
+- Carousel Slider
+- Expanded Text
+- [Iconsax](https://iconsax.io) Icon Pack
+- Cupertino
