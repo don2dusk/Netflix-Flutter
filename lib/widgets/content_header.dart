@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/models/content_model.dart';
-import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
+import 'package:netflix_flutter/models/content_model.dart';
+import 'package:netflix_flutter/widgets/widgets.dart';
 import 'package:video_player/video_player.dart';
 
 class ContentHeader extends StatelessWidget {

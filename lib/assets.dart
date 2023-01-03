@@ -1,15 +1,36 @@
 class Assets {
   static const String _images = 'assets/images/';
+  static const String images = 'assets/content/';
 
   static const String netflixLogo0 = '${_images}netflix_logo0.png';
   static const String netflixLogo1 = '${_images}netflix_logo1.png';
 
   static const String sintel = '${_images}sintel.jpg';
   static const String sintelTitle = '${_images}sintel_title.png';
-  static const String sintelVideoUrl = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4';
+  static const String sintelVideoUrl =
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4';
 
   static const String atla = '${_images}atla.jpg';
   static const String atlaTitle = '${_images}atla_title.png';
+
+  static const String arq = '${images}arq-2016.jpg';
+  static const String blame = '${images}blame-2017.jpg';
+  static const String bluejay = '${images}blue-jay-2016.jpg';
+  static const String deathnote = '${images}death-note-2017.jpg';
+  static const String idfah =
+      '${images}i-dont-feel-at-home-in-this-world-anymore-2017.jpg';
+  static const String iboy = '${images}iboy-2017.jpg';
+  static const String madre = '${images}madre-2016.jpg';
+  static const String memoirs =
+      '${images}true-memoirs-of-an-international-assassin-2016.jpg';
+  static const String whtm = '${images}what-happened-to-monday-2017.jpg';
+  static const String daredevil =
+      '${images}series/Daredevil Netflix Karen Page.jpg';
+  static const String sexed = '${images}series/Sex Education (#1 of 24).jpg';
+  static const String strangerthings =
+      '${images}series/strangerthings_s2_33.jpg';
+  static const String sandman = '${images}series/the-sandman-dream.jpg.webp';
+  static const String unknown = '${images}series/Unknown.jpg';
 
   static const String blackMirror = '${_images}black_mirror.jpg';
   static const String blackMirrorTitle = '${_images}black_mirror_title.png';

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:netflix_flutter/screens/screens.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   runApp(MyApp());
 }
 
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Color.fromRGBO(15, 17, 28, 100),
       ),
       home: NavScreen(),
     );

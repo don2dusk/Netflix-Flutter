@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_netflix_responsive_ui/models/models.dart';
+import 'package:netflix_flutter/models/models.dart';
+import 'package:netflix_flutter/widgets/widgets.dart';
 
 class ContentList extends StatelessWidget {
   final String title;
   final List<Content> contentList;
   final bool isOriginals;
+  final bool isMovie;
   const ContentList({
     Key? key,
     required this.title,
     required this.contentList,
+    required this.isMovie,
     this.isOriginals = false,
   }) : super(key: key);
 
@@ -24,7 +26,7 @@ class ContentList extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
+              horizontal: 20,
             ),
             child: Text(
               title,
@@ -36,21 +38,21 @@ class ContentList extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Container(
-            height: isOriginals ? 500 : 220,
+            height: isOriginals ? 350 : 220,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: contentList.length,
                 itemBuilder: (BuildContext context, int index) {
                   final Content content = contentList[index];
                   return GestureDetector(
-                    onTap: () => print(title),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Preview(content: content, isMovie: isMovie))),
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                      ),
-                      height: isOriginals ? 400 : 200,
-                      width: isOriginals ? 200 : 130,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                           image: AssetImage(
                             content.imageUrl,
@@ -58,6 +60,11 @@ class ContentList extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      height: isOriginals ? 350 : 200,
+                      width: isOriginals ? 200 : 130,
                     ),
                   );
                 }),

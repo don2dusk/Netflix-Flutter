@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="${applicationName}"
-        android:label="flutter_netflix_responsive_ui"
+        android:label="Netflix Flutter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
